@@ -16,7 +16,7 @@ func main() {
 	port, err := util.ReadEnv("PORT")
 
 	if err != nil {
-		port = "8080" // Default to 8080 if PORT is not set
+		port = util.DEFAULT_PORT
 	}
 
 	// Health API

@@ -1,0 +1,23 @@
+app:
+  name: kuberpc-sidecar-injector
+  port: 3500
+  image:
+    repository: docker.io/darksueii/kuberpc-sidecar-injector
+    tag: 0.0.0
+    pullPolicy: Always
+  replicas: 1
+  namespace: kuberpc-dev
+
+configmap:
+  name: kuberpc-sidecar-injector-configmap
+  data:
+    PORT: 8080
+    ANNOTATION_INJECT: "kuberpc.suei.dev/inject"
+    ANNOTATION_APP_ID: "kuberpc.suei.dev/app-id"
+    ANNOTATION_APP_PORT: "kuberpc.suei.dev/app-port"
+    SIDECAR_POD_NAME: "kuberpc"
+    SIDECAR_POD_IMAGE: "docker.io/darksueii/kuberpc-sidecar:0.0.0"
+
+service:
+  type: ClusterIP
+  protocol: TCP
