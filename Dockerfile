@@ -14,7 +14,7 @@ RUN go mod download
 COPY . ./
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-gs-ping
+RUN CGO_ENABLED=0 GOOS=linux go build -o /sidecar-injector ./cmd/app
 
 # Run
-CMD ["/docker-gs-ping"]
+CMD ["/sidcar-injector"]
