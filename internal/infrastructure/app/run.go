@@ -1,4 +1,4 @@
-package main
+package app
 
 import (
 	"log"
@@ -6,17 +6,17 @@ import (
 
 	"github.com/joho/godotenv"
 
-	api "github.com/darksuei/kubeRPC-sidecar-injector/api"
-	util "github.com/darksuei/kubeRPC-sidecar-injector/util"
+	config "github.com/darksuei/kubeRPC-sidecar-injector/config"
+	api "github.com/darksuei/kubeRPC-sidecar-injector/internal/infrastructure/api"
 )
 
-func main() {
-	godotenv.Load()
+func Run() {
+	_ = godotenv.Load()
 
-	port, err := util.ReadEnv("PORT")
+	port, err := config.ReadEnv("PORT")
 
 	if err != nil {
-		port = util.DEFAULT_PORT
+		port = config.DEFAULT_PORT
 	}
 
 	// Health API

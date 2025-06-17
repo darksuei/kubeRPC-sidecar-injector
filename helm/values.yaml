@@ -3,7 +3,7 @@ app:
   port: 3500
   image:
     repository: docker.io/darksueii/kuberpc-sidecar-injector
-    tag: 0.0.0
+    tag: 0.0.1
     pullPolicy: Always
   replicas: 1
   namespace: kuberpc-dev
