@@ -17,4 +17,4 @@ COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o /sidecar-injector ./cmd/app
 
 # Run
-CMD ["/sidcar-injector"]
+CMD ["/sidecar-injector"]
