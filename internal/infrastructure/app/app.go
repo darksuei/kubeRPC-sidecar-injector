@@ -30,9 +30,9 @@ func Run() {
 	}
 
 	go func() {
-		log.Printf("Application is running on port: %s", port)
+		log.Printf("Sidecar injector is running on port: %s", port)
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("Application startup failed: %s", err)
+			log.Fatalf("Sidecar injector startup failed: %s", err)
 		}
 	}()
 
@@ -49,6 +49,6 @@ func Run() {
 		log.Fatalf("Graceful shutdown failed: %s", err)
 	}
 
-	log.Println("Application shutdown successfully..")
+	log.Println("Sidecar injector shutdown successfully..")
 
 }
